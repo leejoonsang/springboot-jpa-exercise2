@@ -27,6 +27,7 @@ public class BookService {
 
     public List<BookResponse> findBooks(Pageable pageable) {
         Page<Book> books = bookRepository.findAll(pageable);
+        System.out.println("33333 : " + books.getTotalPages());
         List<BookResponse> bookResponses = books.stream()
                 .map(book ->
                     BookResponse.of(book))

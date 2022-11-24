@@ -23,11 +23,13 @@ public class BookController {
 
     @GetMapping("")
     public ResponseEntity<List<Book>> list() {
-        return ResponseEntity.ok().body(new ArrayList<>());
+        List<Book> bookList = bookRepository.findAll();
+        return ResponseEntity.ok().body(bookList);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> get(@PathVariable Long id) {
-        return ResponseEntity.ok().body(new Book());
+        Book book = bookRepository.findById(id).get();
+        return ResponseEntity.ok().body(book);
     }
 }

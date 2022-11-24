@@ -14,12 +14,15 @@ public class BookResponse {
     private Long bookId;
     private String bookName;
     private String authorName;
+    private String publisherName;
 
     public static BookResponse of(Book book) {
+        System.out.println("222 : " + book.getAuthor());
         return BookResponse.builder()
                 .bookId(book.getId())
                 .bookName(book.getName())
                 .authorName(book.getAuthor().getName())
+                .publisherName(book.getPublisher().getName())
                 .build();
     }
 
